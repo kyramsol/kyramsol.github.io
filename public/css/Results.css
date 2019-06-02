@@ -1,0 +1,30 @@
+.tablestyle
+{
+    width: 100vh;
+    border-collapse: collapse;
+
+}
+.tablestyle td
+{
+
+    height: 5vh;
+    border-bottom: 1px solid #e8f4fb;
+    padding-left: 10px;
+
+}
+.tablestyle th
+{
+    text-align: left;
+    background: #f0f0f0;
+    height: 5vh;
+    padding-left: 10px;
+
+}
+
+.pad
+{
+dispay: flex;
+    justify-content: center;
+
+
+}

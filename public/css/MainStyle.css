@@ -1,0 +1,73 @@
+.main
+{
+    width: 50vh;
+    height: 38px;
+    border-radius: 5px;
+    border: 0px;
+    background: #eaeaeab3;
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
+    color: #3e3e3e;
+    font-size: 15px;
+    margin-top: 6px;
+
+
+}
+.main:focus
+{
+
+
+    outline: -webkit-focus-ring-color auto 0px;
+
+}
+
+.image
+{
+    background-size: cover;
+    background: url('Images/Emblema.jpg');
+    width: 650px;
+    height: 400px;
+    margin-bottom: 15px;
+}
+.pos
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.button
+{
+    height: 38px;
+    background: royalblue;
+    color: white;
+    border-radius: 5px;
+    border: 0px;
+    font-weight: bolder;
+    min-width: 90px;
+    margin: 5px;
+    font-size: 15px;
+}
+.button:focus
+{
+    outline: -webkit-focus-ring-color auto 0px;
+    -webkit-box-shadow: 0 0 5px #2a46a5;
+    -moz-box-shadow: 0 0 5px #2a46a5;
+    background: #2357b0;
+}
+.button:hover
+{
+    box-shadow: 0 0 5px #1438a5;
+
+    transition: box-shadow 0.3s;
+
+}
+.position
+{
+    margin-bottom: 20px;
+    display:flex;
+}
+.position img
+{
+    margin: 6px 15px 0px 0px;
+}

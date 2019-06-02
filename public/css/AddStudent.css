@@ -1,0 +1,66 @@
+.textfield
+{
+    height: 40px;
+    border-radius: 15px;
+    border: 0px;
+    background: #eaeaeab3;
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
+    color: #3e3e3e;
+    font-size: 17px;
+    margin: 5px;
+    width: 600px;
+
+}
+
+.textfield:focus
+{
+
+    background: white;
+    outline: -webkit-focus-ring-color auto 0px;
+    box-shadow: 0 0 5px #2a46a5;
+}
+.Addform td
+{
+    font-size: 14px;
+    text-align: end;
+
+}
+.Addform
+{
+    padding: 20px 40px;
+    margin-bottom: 0px;
+
+}
+.align_body
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+.border
+{
+    border-bottom: 2px solid #dadce0;
+    border-left: 2px solid #dadce0;
+    border-right: 2px solid #dadce0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+.align
+{
+    display: flex;
+    justify-content: flex-end;
+
+}
+.head
+{
+    padding: 10px 14px;
+    background: royalblue;
+    color: white;
+    font-weight: bolder;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+
+}
