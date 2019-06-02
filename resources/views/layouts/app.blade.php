@@ -12,7 +12,9 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-
+    <link href="/css/AddStudent.css" rel="stylesheet">
+    <link href="/css/MainStyle.css" rel="stylesheet">
+    <link href="/css/Results.css" rel="stylesheet">
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -34,9 +36,10 @@
                         <span class="icon-bar"></span>
                     </button>
 
+
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a class="navbar-brand" href="{{ url('/SearchResults') }}">
+                        {{ config('', 'Prima est archive') }}
                     </a>
                 </div>
 
@@ -50,8 +53,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
+                            <li><a href="{{ url('/login') }}">Увійти</a></li>
+                            <li><a href="{{ url('/register') }}">Зареєструватися</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

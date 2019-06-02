@@ -18,15 +18,15 @@ Route::get('/', function () {
 Route::get('/Search', function () {
     return view('MainPage');
 });
-Route::get('/AddStudent', function () {
-    return view('AddStudent');
-});
+Route::get('/student', 'StudentController@addStudentForm');
+
+Route::post('/student/new', 'StudentController@addStudent');
+
+
 Route::get('/AddDiploma', function () {
     return view('AddDiploma');
 });
-Route::get('/SearchResults', function () {
-    return view('SearchResults');
-});
+Route::get('/SearchResults', 'ResultController@ShowResults');
 
 Auth::routes();
 

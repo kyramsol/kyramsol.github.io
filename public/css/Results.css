@@ -1,30 +1,34 @@
 .tablestyle
 {
-    width: 100vh;
+    width: 150vh;
     border-collapse: collapse;
 
+}
+.widthcol
+{
+    width: 150vh;
 }
 .tablestyle td
 {
 
     height: 5vh;
-    border-bottom: 1px solid #e8f4fb;
+    border-bottom: 1px solid #d3e0e9;
     padding-left: 10px;
-
 }
 .tablestyle th
 {
     text-align: left;
-    background: #f0f0f0;
+    background: #d9edf7;
     height: 5vh;
     padding-left: 10px;
+}
+.align
+{
+    display: flex;
 
 }
-
 .pad
 {
-dispay: flex;
+    display: flex;
     justify-content: center;
-
-
 }

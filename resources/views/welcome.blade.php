@@ -10,7 +10,7 @@
                     <div class="panel-body">
                         Лендинг пейдж
                         <a href="/AddDiploma">диплом</a>
-                        <a href="/AddStudent">студик</a>
+                        <a href="/student/new">студик</a>
                         <a href="/SearchResults">результаты</a>
                     </div>
                 </div>

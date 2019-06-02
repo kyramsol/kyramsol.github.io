@@ -2,59 +2,33 @@
 
 @section('content')
     <div class="pad">
-
+        <div>
     <div class="position">
 
         <form>
-            <input type=text class="main" placeholder="Пошук Роботи" required>
+            <input type=text class="main" placeholder="Пошук Роботи" required name="search">
             <input type="submit" class="button" value="Пошук">
         </form>
+        <div class="align">
+            <form action="/student">
+                <input type="submit" class="button" value="Додати студента">
+            </form>
+            <form action="/AddDiploma">
+                <input type="submit" class="button" value="Завантажити Роботу">
+            </form>
+        </div>
     </div>
-
     <h4>Пошук по запиту:</h4>
     <table class="tablestyle" >
         <tr>
-            <th>Назва Роботи</th>     <th>Виконав</th>     <th>Специальность</th>    <th>Оценка</th>    <th>Вид</th> <th>Предмет</th>
+            <th>Назва Роботи</th>     <th>Виконавець</th>     <th>Спеціальність</th>        <th>Вид роботи</th> <th>Предмет</th> <th>Оцінка</th>
         </tr>
+        @foreach($students as $s)
         <tr>
-            <td>Система автоматического говна</td>     <td>Вася Пупкин</td>     <td>Говнодав</td>    <td>55555</td>    <td>Диплом</td> <td>Web</td>
+            <td>Calling </td>      <td>{{ $s->second_name}} &nbsp {{ $s->first_name }} &nbsp {{$s->father_name}} </td>      <td> </td>      <td> </td>      <td> </td>      <td> </td>
         </tr>
-        <tr>
-            <td>Система автоматического говна</td>     <td>Вася Пупкин</td>     <td>Говнодав</td>    <td>55555</td>    <td>Диплом</td> <td>Web</td>
-        </tr>
-        <tr>
-            <td>Система автоматического говна</td>     <td>Вася Пупкин</td>     <td>Говнодав</td>    <td>55555</td>    <td>Диплом</td> <td>Web</td>
-        </tr>
-        <tr>
-            <td>Система автоматического говна</td>     <td>Вася Пупкин</td>     <td>Говнодав</td>    <td>55555</td>    <td>Диплом</td> <td>Web</td>
-        </tr>
-        <tr>
-            <td>Система автоматического говна</td>     <td>Вася Пупкин</td>     <td>Говнодав</td>    <td>55555</td>    <td>Диплом</td> <td>Web</td>
-        </tr>
-        <tr>
-            <td>Система автоматического говна</td>     <td>Вася Пупкин</td>     <td>Говнодав</td>    <td>55555</td>    <td>Диплом</td> <td>Web</td>
-        </tr>
-        <tr>
-            <td>Система автоматического говна</td>     <td>Вася Пупкин</td>     <td>Говнодав</td>    <td>55555</td>    <td>Диплом</td> <td>Web</td>
-        </tr>
-        <tr>
-            <td>Система автоматического говна</td>     <td>Вася Пупкин</td>     <td>Говнодав</td>    <td>55555</td>    <td>Диплом</td> <td>Web</td>
-        </tr>
-        <tr>
-            <td>Система автоматического говна</td>     <td>Вася Пупкин</td>     <td>Говнодав</td>    <td>55555</td>    <td>Диплом</td> <td>Web</td>
-        </tr>
-        <tr>
-            <td>Система автоматического говна</td>     <td>Вася Пупкин</td>     <td>Говнодав</td>    <td>55555</td>    <td>Диплом</td> <td>Web</td>
-        </tr>
-        <tr>
-            <td>Система автоматического говна</td>     <td>Вася Пупкин</td>     <td>Говнодав</td>    <td>55555</td>    <td>Диплом</td> <td>Web</td>
-        </tr>
-        <tr>
-            <td>Система автоматического говна</td>     <td>Вася Пупкин</td>     <td>Говнодав</td>    <td>55555</td>    <td>Диплом</td> <td>Web</td>
-        </tr>
-        <tr>
-            <td>Система автоматического говна</td>     <td>Вася Пупкин</td>     <td>Говнодав</td>    <td>55555</td>    <td>Диплом</td> <td>Web</td>
-        </tr>
+            @endforeach
     </table>
         </div>
+    </div>
 @endsection

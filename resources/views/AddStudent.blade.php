@@ -5,22 +5,23 @@
     <div>
     <div class="head">Додавання даних Студента</div>
         <div class="border">
-        <form class="Addform">
+        <form class="Addform" action="/student/new" method="post">
         <table >
+            {{ csrf_field() }}
         <tr>
-            <td>Name:</td><td><input text class="textfield" placeholder="Василий" required></td>
+            <td>Прізвище: &nbsp </td><td><input text class="textfield"  required name="sname"></td>
         </tr>
         <tr>
-            <td>Second Name:</td><td><input text class="textfield" placeholder="Васильевич" required></td>
+            <td>Ім'я: &nbsp </td><td><input text class="textfield" p required name="name"></td>
         </tr>
         <tr>
-            <td>Last Name:</td><td><input text class="textfield" placeholder="Василенко" required></td>
+            <td>По-батькові: &nbsp </td><td><input text class="textfield"  required name="fname"></td>
         </tr>
         <tr>
-            <td>Year:</td><td><input text class="textfield" placeholder="1986" required></td>
+            <td>Рік вступу: &nbsp </td><td><input text class="textfield"  required name="year"></td>
         </tr>
         <tr>
-            <td></td><td align="right"><input type="submit" class="button" ></td>
+            <td></td><td align="right"><input type="submit" class="button" value="Відправити"></td>
         </tr>
         </table>
         </form>
