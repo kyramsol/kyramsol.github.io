@@ -22,7 +22,8 @@ Route::get('/student', 'StudentController@addStudentForm');
 
 Route::post('/student/new', 'StudentController@addStudent');
 
-
+Route::get('/student/{id}', 'StudentController@getStudentData');
+Route::post('/student/change/{id}', 'StudentController@addStudentData');
 Route::get('/AddDiploma', function () {
     return view('AddDiploma');
 });
