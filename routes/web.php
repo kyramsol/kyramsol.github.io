@@ -28,6 +28,8 @@ Route::get('/AddDiploma', function () {
 });
 Route::get('/SearchResults', 'ResultController@ShowResults');
 
+Route::get('/diploma', 'diplomaController@viewDiploma');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

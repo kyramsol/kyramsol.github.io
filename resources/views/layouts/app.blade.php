@@ -15,6 +15,7 @@
     <link href="/css/AddStudent.css" rel="stylesheet">
     <link href="/css/MainStyle.css" rel="stylesheet">
     <link href="/css/Results.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/73326818ee.js"></script>
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([

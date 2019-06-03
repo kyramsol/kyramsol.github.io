@@ -56,5 +56,17 @@
     font-weight: bolder;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
-
+}
+.anketa_size
+{
+    min-width: 50vh;
+}
+.anketa_table td
+{
+    max-width: 30vh;
+    height: 5vh;
+    border-bottom: 1px solid #d3e0e9;
+    padding-left: 10px;
+    width: 50vh;
+    font-size: 14px;
 }

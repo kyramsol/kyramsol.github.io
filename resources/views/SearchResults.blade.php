@@ -21,11 +21,11 @@
     <h4>Пошук по запиту:</h4>
     <table class="tablestyle" >
         <tr>
-            <th>Назва Роботи</th>     <th>Виконавець</th>     <th>Спеціальність</th>        <th>Вид роботи</th> <th>Предмет</th> <th>Оцінка</th>
+            <th>Назва Роботи</th>    <th></th> <th>Виконавець</th>     <th>Спеціальність</th>        <th>Вид роботи</th> <th>Предмет</th> <th>Оцінка</th>
         </tr>
         @foreach($students as $s)
         <tr>
-            <td>Calling </td>      <td>{{ $s->second_name}} &nbsp {{ $s->first_name }} &nbsp {{$s->father_name}} </td>      <td> </td>      <td> </td>      <td> </td>      <td> </td>
+            <td>Система онлайн обліку кваліфікаційних робіт </td>      <td><a href="/student/{{$s->id}}"><i class="far fa-edit"></i></a></td>  <td>{{ $s->second_name}}&nbsp{{ $s->first_name }}&nbsp{{$s->father_name}}</td>      <td> </td>      <td> </td>      <td> </td>      <td> </td>
         </tr>
             @endforeach
     </table>

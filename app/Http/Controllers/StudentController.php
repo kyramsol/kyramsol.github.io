@@ -22,4 +22,5 @@ class StudentController extends Controller
         $student->save();
         return view('AddStudent');
     }
+
 }

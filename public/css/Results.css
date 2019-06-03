@@ -8,12 +8,17 @@
 {
     width: 150vh;
 }
+.tablestyle tr
+{
+    height:50px;
+}
 .tablestyle td
 {
 
-    height: 5vh;
+    height:5vh;
     border-bottom: 1px solid #d3e0e9;
     padding-left: 10px;
+    width: auto;
 }
 .tablestyle th
 {
