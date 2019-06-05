@@ -47,6 +47,7 @@ class InitialMigration extends Migration
             $table->string('file_path');
             $table->string('original_file_name');
             $table->text('description');
+            $table->integer('creation_year');
             $table->timestamps();
 
             $table->foreign('student_id')->references('id')->on('students');

@@ -22,7 +22,7 @@
 .Addform td
 {
     font-size: 14px;
-    text-align: end;
+
 
 }
 .Addform
@@ -69,4 +69,23 @@
     padding-left: 10px;
     width: 50vh;
     font-size: 14px;
+}
+
+.added_text
+{
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    padding: 20px 0px;
+}
+.fileadd
+{
+    display:flex;
+    justify-content: space-between;
+}
+.dropdown
+{
+    margin: 10px 5px;
+
 }
