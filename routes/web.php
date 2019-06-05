@@ -26,17 +26,28 @@ Route::get('/student/{id}', 'StudentController@getStudentData');
 
 Route::post('/student/change/{id}', 'StudentController@addStudentData');
 
+
+
+Route::get('/diploma', 'DiplomaController@saveDiploma');
+
 Route::get('/AddDiploma', 'DiplomaController@viewDiploma');
-Route::post('/AddDiploma', 'DiplomaController@saveDiploma');
+
+Route::get('/filetest', 'DiplomaController@viewfiletest');
+
+Route::post('/AddDiploma/new','DiplomaController@saveDiploma');
+
+
 
 Route::get('/testajax', function()
 {
     $pepka='govno';
     return $pepka;
 });
+
+
 Route::get('/SearchResults', 'ResultController@ShowResults');
 
-Route::get('/diploma', 'DiplomaController@saveDiploma');
+
 
 Auth::routes();
 

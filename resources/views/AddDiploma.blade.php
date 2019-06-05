@@ -6,22 +6,24 @@
     <div class="head">Додавання Роботи</div>
         <div class="border">
 
-        <form class="Addform" method="post" action="/AddDiploma">
+        <form class="Addform" method="post" action="/AddDiploma/new" enctype="multipart/form-data">
             {{ csrf_field() }}
         <table>
             <tr>
-                <td>Назва</td>   <td><input text class="textfield"  required name="call"></td>
+                <td>Творець</td>   <td><input text class="textfield"  required name="creator"></td>
             </tr>
         <tr>
             <td>Назва</td>   <td><input text class="textfield"  required name="call"></td>
         </tr>
         <tr>
-            <td>Куратор</td>   <td><input text class="textfield"  required name="teacher"></td>
+            <td>Керівник</td>   <td><input text class="textfield"  required name="teacher"></td>
         </tr>
         <tr>
             <td>Оцiнка</td>   <td><input text class="textfield"  required name="mark"></td>
         </tr>
-
+            <tr>
+                <td>Рік написання</td>   <td><input text class="textfield"  required name="creation_year"></td>
+            </tr>
             <tr>
                 <td></td><td colspan="2"><div class="fileadd"><input class="dropdown"  list="Department" placeholder="Спеціальність"><input class="dropdown"  list="Group" placeholder="группа"></div></td>
             </tr>
@@ -48,28 +50,5 @@
 </div>
     <div>
 
-        <script>
-            function loadXMLDoc()
-            {
-                var xmlhttp;
-                if (window.XMLHttpRequest)
-                {// код для IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp=new XMLHttpRequest();
-                }
-                else
-                {// код для IE6, IE5
-                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                }
 
-                alert(xmlhttp.responseText);
-                xmlhttp.open("get","/diploma",true);
-                xmlhttp.send();
-
-            }
-        </script>
-        <div id="myDiv"></div>
-        <form>
-            <input type=button onclick=loadXMLDoc()>
-        </form>
-    </div>
 @endsection
