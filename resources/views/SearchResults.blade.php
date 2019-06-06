@@ -48,7 +48,7 @@
                             {{$diploma->student->first_name}}
                             {{$diploma->student->father_name}}
                         </td>
-                        <td>Department name</td>
+                        <td>{{$diploma->department->name}}</td>
                         <td>{{$diploma->group->group_code}}</td>
                         <td>{{$diploma->type}}</td>
                         <td>{{$diploma->creation_year}} </td>

@@ -42,6 +42,7 @@ class InitialMigration extends Migration
             $table->increments('id');
             $table->integer('student_id')->unsigned();
             $table->integer('group_id')->unsigned();
+            $table->integer('department_id')->unsigned();
             $table->string('mark');
             $table->string('kurator');
             $table->string('file_path');
@@ -55,6 +56,7 @@ class InitialMigration extends Migration
 
             $table->foreign('student_id')->references('id')->on('students');
             $table->foreign('group_id')->references('id')->on('available_groups');
+            $table->foreign('department_id')->references('id')->on('departments');
         });
     }
 
