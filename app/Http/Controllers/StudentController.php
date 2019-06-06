@@ -21,7 +21,8 @@ class StudentController extends Controller
         $student-> father_name = $request->fname;
         $student-> initial_year = $request->year;
         $student->save();
-        return view('Added');
+        $id=$student->id;
+        return view('Added', compact('id'));
     }
 
     public function getStudentData($id){
@@ -37,6 +38,18 @@ class StudentController extends Controller
         $student-> father_name = $request->fname;
         $student-> initial_year = $request->year;
         $student->save();
-        return view('Added');
+        return view('Added',compact('id'));
+    }
+    public function takeStudent(Request $request)
+    {
+        $s_name=$request->term.'%';
+        $students_auto=Student::selectRaw('concat(second_name, " ", first_name, " ", father_name) as value, id')
+            ->where('second_name','like', $s_name)
+            ->orWhere('first_name','like', $s_name)
+            ->orWhere(DB::raw('concat(second_name, " ", first_name)'),'like', $s_name)
+            ->orWhere(DB::raw('concat(first_name, " ", second_name)'),'like', $s_name)
+            ->get();
+        return $students_auto;
+
     }
 }

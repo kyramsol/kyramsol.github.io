@@ -14,8 +14,8 @@
                     <form action="/SearchResults">
                         <input type="submit" class="button" value="На головну">
                     </form>
-                    <form action="/AddDiploma">
-                        <input type="submit" class="button" value="Завантажити Роботу">
+                    <form action="/student/{{$id}}">
+                        <input type="submit" class="button" value="Редагувати">
                     </form>
                 </div>
             </div>

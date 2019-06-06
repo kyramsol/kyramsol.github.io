@@ -42,11 +42,11 @@ Route::get('/Diploma/{id}','DiplomaController@Diploma');
 
 
 
-Route::get('/takestudents', 'DiplomaController@takeStudent');
+Route::get('/takestudents', 'StudentController@takeStudent');
 
-Route::get('/takegroup', 'DiplomaController@takeGroup');
+Route::get('/takegroup', 'GroupController@takeGroup');
 
-Route::get('/takedepartment', 'DiplomaController@takeDepartment');
+Route::get('/takedepartment', 'DepartmentsController@takeDepartment');
 
 
 

@@ -15,23 +15,31 @@
                         </tr>
                         <tr>
                             <td>Назва</td>
-                            <td>Система онлайн обліку кваліфікаційних робіт</td>
+                            <td>{{$diploma->description}}</td>
                         </tr>
                         <tr>
                             <td>Спеціальність</td>
-                            <td>Обслуговування програмних систем і комплексів</td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td>Код групи</td>
-                            <td> 10-і</td>
+                            <td>Група</td>
+                            <td>{{$diploma->group->group_code}}</td>
                         </tr>
                         <tr>
                             <td>Куратор</td>
-                            <td>Захарченко В.П.</td>
+                            <td>{{$diploma->kurator}}</td>
                         </tr>
                         <tr>
                             <td>Оцінка</td>
-                            <td>?</td>
+                            <td>{{$diploma->mark}}</td>
+                        </tr>
+                        <tr>
+                            <td>Вид</td>
+                            <td>{{$diploma->type}}</td>
+                        </tr>
+                        <tr>
+                            <td>Предмет</td>
+                            <td>{{$diploma->subject}}</td>
                         </tr>
                         <tr>
                             <td colspan="2" bgcolor="#dcdcdc"><b>Виконавець</b></td>
@@ -39,19 +47,19 @@
 
                         <tr>
                             <td>Прізвище</td>
-                            <td>Коровай</td>
+                            <td>{{$diploma->student->second_name}}</td>
                         </tr>
                         <tr>
                             <td>імя</td>
-                            <td>Сергій</td>
+                            <td>{{$diploma->student->first_name}}</td>
                         </tr>
                         <tr>
                             <td>По-батькові</td>
-                            <td> Костянтинович</td>
+                            <td>{{$diploma->student->father_name}}</td>
                         </tr>
                         <tr>
                             <td>Рік вступу</td>
-                            <td> 1984</td>
+                            <td>{{$diploma->student->initial_year}}</td>
                         </tr>
                     </table>
                 </div>

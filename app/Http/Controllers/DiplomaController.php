@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Department;
+
 use App\Models\Diploma;
-use App\Models\Student;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -56,36 +56,13 @@ class diplomaController extends Controller
         return view('Added');
     }
 
-    public function takeStudent(Request $request)
-    {
-        $s_name=$request->term.'%';
-        $students_auto=Student::selectRaw('concat(second_name, " ", first_name, " ", father_name) as value, id')
-            ->where('second_name','like', $s_name)
-            ->orWhere('first_name','like', $s_name)
-            ->orWhere(DB::raw('concat(second_name, " ", first_name)'),'like', $s_name)
-            ->orWhere(DB::raw('concat(first_name, " ", second_name)'),'like', $s_name)
-            ->get();
-        return $students_auto;
 
-    }
-    public function takeDepartment(Request $request)
-    {
-        $name='%'.$request->term.'%';
-        $departments_auto=Department::with(['groups'])->selectRaw('name as value, id')->where('name','like', $name)->get();
-        return $departments_auto;
 
-    }
-    public function takeGroup(Request $request)
-    {
-        $code='%'.$request->term.'%';
-        $groups_auto=DB::table('available_groups')->selectRaw('group_code as value, id')->where('group_code','like', $code)->get();
-        return $groups_auto;
 
-    }
     public function Diploma($id)
     {
         $diploma=Diploma::with(['student', 'group', 'department'])->find($id);
-        return view('diploma', $diploma);
+        return view('diploma', compact('diploma'));
 
     }
 }

@@ -23,11 +23,11 @@
                 <tr>
                     <th></th>
                     <th>Назва Роботи</th>
+                    <th></th>
+                    <th >Виконавець</th>
+                    <th>Спеціальність</th>
                     <th>Група</th>
-                    <th>Виконавець</th>
-                    <th>Вид роботи</th>
-                    <th>Предмет</th>
-                    <th>Оцінка</th>
+                    <th>Вид</th>
                     <th>Рік створення</th>
                 </tr>
                 @foreach($diplomas as $diploma)
@@ -37,17 +37,20 @@
                                 <i class="far fa-edit"></i>
                             </a>
                         </td>
-                        <td>{{$diploma->description}}</td>
-                        <td>{{$diploma->group->group_code}}</td>
+                        <td><a href="/Diploma/{{$diploma->id}}">{{$diploma->description}}</td></a>
+                        <td>
+                            <a href="/student/{{$diploma->id}}">
+                                <i class="far fa-edit"></i>
+                            </a>
+                        </td>
                         <td>
                             {{$diploma->student->second_name}}
-                            &nbsp
                             {{$diploma->student->first_name}}
-                            &nbsp
                             {{$diploma->student->father_name}}
                         </td>
+                        <td>Department name</td>
+                        <td>{{$diploma->group->group_code}}</td>
                         <td>{{$diploma->type}}</td>
-                        <td>{{$diploma->mark}} </td>
                         <td>{{$diploma->creation_year}} </td>
                     </tr>
                 @endforeach
