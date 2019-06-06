@@ -15,10 +15,15 @@
     <link href="/css/AddStudent.css" rel="stylesheet">
     <link href="/css/MainStyle.css" rel="stylesheet">
     <link href="/css/Results.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset('js/jquery/jquery-ui.min.css')}}">
+    <script src="{{ asset('js/jquery/external/jquery/jquery.js')}}"></script>
+    <script src="{{ asset('js/jquery/jquery-ui.js')}}"></script>
+
     <script src="https://kit.fontawesome.com/73326818ee.js"></script>
     <!-- Scripts -->
     <script>
-        window.Laravel = <?php echo json_encode([
+        window.Laravel =<?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
@@ -86,6 +91,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+
 </body>
 </html>

@@ -9,12 +9,8 @@ class diplomaController extends Controller
 {
     public function viewDiploma()
     {
-        $choose[]=array();
-        $choose[0]=DB::table('departments')->get();
-        $choose[1]=DB::table('available_groups')->get();
         return view('AddDiploma', compact('choose'));
     }
-
     public function viewfiletest()
     {
         return view('file_test');
@@ -25,15 +21,35 @@ class diplomaController extends Controller
         $diploma->mark=$request->mark;
         $diploma->kurator=$request->teacher;
         $diploma->description=$request->call;
-        $diploma->student_id=1;
-        $diploma->group_id=1;
+        $diploma->student_id=$request->student_id;
+        $diploma->group_id=$request->group_id;
         $diploma->creation_year=$request->creation_year;
-        $path1=$request->file('filepath');
-        $path=$path1->store('test_file');
+        $path=$request->file('filepath')->store('test_file');
         $diploma->file_path=$path;
         $diploma->original_file_name=$request->file('filepath')->getClientOriginalName();
         $diploma->save();
         return view('Added');
+    }
+    public function takeStudent(Request $request)
+    {
+        $s_name=$request->term.'%';
+        $students_auto=DB::table('students')->selectRaw('second_name as value, id')->where('second_name','like', $s_name)->get();
+        return $students_auto;
+
+    }
+    public function takeDepartment(Request $request)
+    {
+        $name='%'.$request->term.'%';
+        $departments_auto=DB::table('departments')->selectRaw('name as value, id')->where('name','like', $name)->get();
+        return $departments_auto;
+
+    }
+    public function takeGroup(Request $request)
+    {
+        $code='%'.$request->term.'%';
+        $groups_auto=DB::table('available_groups')->selectRaw('group_code as value, id')->where('group_code','like', $code)->get();
+        return $groups_auto;
+
     }
 }
 

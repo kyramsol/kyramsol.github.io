@@ -32,7 +32,13 @@ Route::get('/diploma', 'DiplomaController@saveDiploma');
 
 Route::get('/AddDiploma', 'DiplomaController@viewDiploma');
 
-Route::get('/filetest', 'DiplomaController@viewfiletest');
+Route::get('/takestudents', 'DiplomaController@takeStudent');
+
+Route::get('/takegroup', 'DiplomaController@takeGroup');
+
+Route::get('/takedepartment', 'DiplomaController@takeDepartment');
+
+
 
 Route::post('/AddDiploma/new','DiplomaController@saveDiploma');
 
