@@ -48,7 +48,10 @@ class InitialMigration extends Migration
             $table->string('original_file_name');
             $table->text('description');
             $table->integer('creation_year');
+            $table->string('subject');
+            $table->string('type');
             $table->timestamps();
+
 
             $table->foreign('student_id')->references('id')->on('students');
             $table->foreign('group_id')->references('id')->on('available_groups');

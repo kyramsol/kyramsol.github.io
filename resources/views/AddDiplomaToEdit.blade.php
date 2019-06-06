@@ -5,48 +5,51 @@
         <div>
             <div class="head">Додавання Роботи</div>
             <div class="border">
-                <form class="Addform" method="post" action="/AddDiploma/new" enctype="multipart/form-data">
+                <form class="Addform" method="post" action="/AddDiploma/edit/{{$diploma->id}}"
+                      enctype="multipart/form-data">
                     {{ csrf_field() }}
-                    <input type="hidden" id="student_id" name="student_id">
-                    <input type="hidden" id="group_id" name="group_id">
-                    <input type="hidden" id="department_id" name="department_id">
+                    <input type="hidden" id="student_id" name="student_id" required>
+                    <input type="hidden" id="group_id" name="group_id" required>
+                    <input type="hidden" id="department_id" name="department_id" required>
                     <table>
                         <tr>
                             <td>Творець</td>
-                            <td><input type="text" class="textfield" name="autoname" id="student_name" value=""></td>
+                            <td><input type="text" class="textfield" name="autoname" id="student_name"></td>
                         </tr>
                         <tr>
                             <td>Назва</td>
-                            <td><input text class="textfield" required name="call"></td>
-                        </tr>
-                        <tr>
-                            <td>Керівник</td>
-                            <td><input text class="textfield" required name="teacher"></td>
-                        </tr>
-                        <tr>
-                            <td>Оцiнка</td>
-                            <td><input text class="textfield" required name="mark"></td>
-                        </tr>
-                        <tr>
-                            <td>Рік написання</td>
-                            <td><input text class="textfield" required name="creation_year"></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colspan="2">
-                                <div class="fileadd"><input class="dropdown" type="text" placeholder="Спеціальність"
-                                                            id="Department"><input class="dropdown" type="text"
-                                                                                   id="Group" placeholder="группа">
-                                </div>
+                            <td><input text class="textfield" required name="call" value="{{$diploma->description}}">
                             </td>
                         </tr>
                         <tr>
+                            <td>Керівник</td>
+                            <td><input text class="textfield" required name="teacher" value="{{$diploma->kurator}}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Оцiнка</td>
+                            <td><input text class="textfield" required name="mark" value="{{$diploma->mark}}"></td>
+                        </tr>
+                        <tr>
+                            <td>Рік написання</td>
+                            <td><input text class="textfield" required name="creation_year"
+                                       value="{{$diploma->creation_year}}"></td>
+                        </tr>
+                        <tr>
                             <td>Предмет</td>
-                            <td><input text class="textfield" name="subject" value="—"></td>
+                            <td><input text class="textfield" name="subject" value="{{$diploma->subject}}"></td>
                         </tr>
                         <tr>
                             <td>Вид</td>
-                            <td><input text class="textfield" name="type" value=""></td>
+                            <td><input text class="textfield" name="type" value="{{$diploma->type}}"></td>
+                        </tr>
+                        <tr>
+                            <td>Відділення</td>
+                            <td colspan="2"><input class="dropdown textfield" type="text" required id="Department"></td>
+                        </tr>
+                        <tr>
+                            <td>Группа</td>
+                            <td><input class="dropdown textfield" type="text" id="Group" required></td>
                         </tr>
 
                         <tr>
@@ -70,27 +73,17 @@
                     $('#student_id').val(ui.item.id);
                 }
             });
-            $('#Group').selectmenu({
+            $('#Group').autocomplete({
+                source: '/takegroup',
                 select: function (event, ui) {
                     console.log('You selected: ' + ui.item.value + ', ' + ui.item.id);
                     $('#group_id').val(ui.item.id);
                 }
             });
             $('#Department').autocomplete({
-                source: function (request, response) {
-                    console.log(request, response);
-                    jQuery.get("/takedepartment", {
-                        query: request.term
-                    }, function (data) {
-                        console.log(data);
-                        response(data);
-                    });
-                },
+                source: '/takedepartment',
                 select: function (event, ui) {
-                    console.log('You selected: ' + ui.item.value + ', ' + ui.item.id, ui.item);
-                    var groups = ui.item.groups.map(function (group) {
-                        return {value: group.group_code, id: group.id}
-                    });
+                    console.log('You selected: ' + ui.item.value + ', ' + ui.item.id);
                     $('#department_id').val(ui.item.id);
                 }
             });

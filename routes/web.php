@@ -28,9 +28,19 @@ Route::post('/student/change/{id}', 'StudentController@addStudentData');
 
 
 
-Route::get('/diploma', 'DiplomaController@saveDiploma');
 
 Route::get('/AddDiploma', 'DiplomaController@viewDiploma');
+
+Route::post('/AddDiploma/new','DiplomaController@saveDiploma');
+
+Route::get('/AddDiploma/change/{id}', 'DiplomaController@viewDiplomaToEdit');
+
+Route::post('/AddDiploma/edit/{id}','DiplomaController@editDiploma');
+
+Route::get('/Diploma/{id}','DiplomaController@Diploma');
+
+
+
 
 Route::get('/takestudents', 'DiplomaController@takeStudent');
 
@@ -40,18 +50,12 @@ Route::get('/takedepartment', 'DiplomaController@takeDepartment');
 
 
 
-Route::post('/AddDiploma/new','DiplomaController@saveDiploma');
 
-
-
-Route::get('/testajax', function()
-{
-    $pepka='govno';
-    return $pepka;
-});
-
+Route::get('/StudentList', 'ResultController@ShowStudentsResults');
 
 Route::get('/SearchResults', 'ResultController@ShowResults');
+
+
 
 
 

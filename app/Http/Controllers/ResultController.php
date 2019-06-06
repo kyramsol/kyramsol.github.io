@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Diploma;
 
 class ResultController extends Controller
 {
     public function ShowResults()
     {
-        $students=DB::table('students')->get();
-        return view('SearchResults', compact('students'));
+        $diplomas=Diploma::with(['student', 'group', 'department'])->get();
+        return view('SearchResults', compact('diplomas'));
     }
+
 }
