@@ -19,7 +19,7 @@
                         </tr>
                         <tr>
                             <td>Спеціальність</td>
-                            <td></td>
+                            <td>{{$diploma->department->name}}</td>
                         </tr>
                         <tr>
                             <td>Група</td>
@@ -50,7 +50,7 @@
                             <td>{{$diploma->student->second_name}}</td>
                         </tr>
                         <tr>
-                            <td>імя</td>
+                            <td>Ім'я</td>
                             <td>{{$diploma->student->first_name}}</td>
                         </tr>
                         <tr>
@@ -64,7 +64,8 @@
                     </table>
                 </div>
                 <div class="pad Addform">
-                    <input type="submit" class="button" value="Завантажити">
+                    <form method="get" action="/Diploma/download/{{$diploma->id}}">
+                    <input type="submit" class="button" value="Завантажити"></form>
                 </div>
             </div>
         </div>

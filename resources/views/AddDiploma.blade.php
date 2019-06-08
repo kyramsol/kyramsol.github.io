@@ -10,7 +10,7 @@
                     <input type="hidden" id="student_id" name="student_id">
                     <input type="hidden" id="group_id" name="group_id">
                     <input type="hidden" id="department_id" name="department_id">
-                    <table>
+                    <table >
                         <tr>
                             <td>Творець</td>
                             <td><input type="text" class="textfield" name="autoname" id="student_name" value=""></td>
@@ -32,14 +32,29 @@
                             <td><input text class="textfield" required name="creation_year"></td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td colspan="2">
-                                <div class="fileadd"><input class="dropdown" type="text" placeholder="Спеціальність"
-                                                            id="Department"><input class="dropdown" type="text"
-                                                                                   id="Group" placeholder="группа">
-                                </div>
+                            <td>Спеціальність</td>
+                            <td>
+
+                                <select id="Department" class="textfield">
+                                    <option selected disabled hidden style='display: none' value=''></option>
+                                    @foreach ($departments as $department)
+                                        <option value={{$department->id}} groups={{$department->groups}}>
+                                            {{$department->name}}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </td>
                         </tr>
+                        <tr>
+
+                            <td>Група</td>
+                            <td>
+                                <select id="Group" class="textfield">
+                                </select>
+                            </td>
+                        </tr>
+                        </td>
+
                         <tr>
                             <td>Предмет</td>
                             <td><input text class="textfield" name="subject" value="—"></td>
@@ -51,51 +66,44 @@
 
                         <tr>
                             <td colspan="2">
-                                <div class="fileadd"><input type="file" name="filepath" required> <input type="submit"
-                                                                                                         class="button">
+                                <div class="fileadd">
+                                    <input type="file" name="filepath" required>
+                                    <input type="submit" class="button">
                                 </div>
                             </td>
                         </tr>
                     </table>
                 </form>
             </div>
-
-
         </div>
-        <script>
-            $('#student_name').autocomplete({
-                source: '/takestudents',
-                select: function (event, ui) {
-                    console.log('You selected: ' + ui.item.value + ', ' + ui.item.id);
-                    $('#student_id').val(ui.item.id);
-                }
-            });
-            $('#Group').selectmenu({
-                select: function (event, ui) {
-                    console.log('You selected: ' + ui.item.value + ', ' + ui.item.id);
-                    $('#group_id').val(ui.item.id);
-                }
-            });
-            $('#Department').autocomplete({
-                source: function (request, response) {
-                    console.log(request, response);
-                    jQuery.get("/takedepartment", {
-                        query: request.term
-                    }, function (data) {
-                        console.log(data);
-                        response(data);
-                    });
-                },
-                select: function (event, ui) {
-                    console.log('You selected: ' + ui.item.value + ', ' + ui.item.id, ui.item);
-                    var groups = ui.item.groups.map(function (group) {
-                        return {value: group.group_code, id: group.id}
-                    });
-                    $('#department_id').val(ui.item.id);
-                }
-            });
-        </script>
     </div>
+    </div>
+    <script>
+        $('#student_name').autocomplete({
+            source: '/takestudents',
+            select: function (event, ui) {
+                console.log('You selected: ' + ui.item.value + ', ' + ui.item.id);
+                $('#student_id').val(ui.item.id);
+            }
+        });
+        $('#Group').change(function () {
+            var selectedOptions = $('#Group').find(':selected')[0];
+            $('#group_id').val(selectedOptions.value);
+        });
+        $('#Department').change(function () {
+            var selectedOptions = $('#Department').find(':selected')[0];
+            $('#department_id').val(selectedOptions.value);
+            $('#group_id').val(null);
+            $("#Group").empty();
+            var groups = JSON.parse(selectedOptions.attributes.groups.value);
+            $("#Group").append($('<option selected disabled hidden style=\'display: none\' value=\'\'></option>'));
+            groups.forEach(function (item) {
+                $("#Group").append($("<option  value=" + item.id + ">" + item.group_code + "</option>"));
+            });
+
+        });
+    </script>
+
 
 
 

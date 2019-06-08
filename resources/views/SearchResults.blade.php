@@ -1,12 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="pad">
         <div>
             <div class="position">
 
-                <form>
+                <form method="post" action="/Search">
+                    {{ csrf_field() }}
+                    <input type=text  required name="year">
                     <input type=text class="main" placeholder="Пошук Роботи" required name="search">
+                    <select class="selection" name="select">
+                        <option>Назва</option>
+                        <option>Ім'я</option>
+                    </select>
                     <input type="submit" class="button" value="Пошук">
                 </form>
                 <div class="align">
@@ -32,12 +39,13 @@
                 </tr>
                 @foreach($diplomas as $diploma)
                     <tr>
+
                         <td>
                             <a href="AddDiploma/change/{{$diploma->id}}">
                                 <i class="far fa-edit"></i>
                             </a>
                         </td>
-                        <td><a href="/Diploma/{{$diploma->id}}">{{$diploma->description}}</td></a>
+                        <td> <a href="/Diploma/{{$diploma->id}}">{{$diploma->description}}</td></a>
                         <td>
                             <a href="/student/{{$diploma->id}}">
                                 <i class="far fa-edit"></i>
@@ -55,6 +63,13 @@
                     </tr>
                 @endforeach
             </table>
+            <div class="container">
+                <?php foreach ($diplomas as $user): ?>
+    <?php echo $user->name; ?>
+  <?php endforeach; ?>
+            </div>
+
+            <?php echo $diplomas->render(); ?>
         </div>
     </div>
 @endsection

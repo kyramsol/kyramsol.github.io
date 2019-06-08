@@ -62,6 +62,34 @@
     transition: box-shadow 0.3s;
 
 }
+.selection
+{
+    height: 4vh;
+    color:gray;
+    background: white;
+    box-shadow: 0 0 5px silver;
+    border-radius: 5px;
+    border: 0px;
+    font-weight: bolder;
+    min-width: 10vh;
+    margin: 5px;
+    font-size: 15px;
+}
+.selection:focus
+{
+    outline: -webkit-focus-ring-color auto 0px;
+    -webkit-box-shadow: 0 0 5px #2a46a5;
+    -moz-box-shadow: 0 0 5px #2a46a5;
+    background: white;
+    color: gray;
+}
+.selection:hover
+{
+    box-shadow: 0 0 5px gray;
+    color: gray;
+    transition: box-shadow 0.3s;
+
+}
 .position
 {
     margin-bottom: 20px;

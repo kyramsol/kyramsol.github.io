@@ -39,6 +39,8 @@ Route::post('/AddDiploma/edit/{id}','DiplomaController@editDiploma');
 
 Route::get('/Diploma/{id}','DiplomaController@Diploma');
 
+Route::get('/Diploma/download/{id}', 'DiplomaController@DownloadDiploma');
+
 
 
 
@@ -51,10 +53,11 @@ Route::get('/takedepartment', 'DepartmentsController@takeDepartment');
 
 
 
+Route::post('/Search', 'ResultController@Search');
+
 Route::get('/StudentList', 'ResultController@ShowStudentsResults');
 
 Route::get('/SearchResults', 'ResultController@ShowResults');
-
 
 
 

@@ -73,19 +73,23 @@
                     $('#student_id').val(ui.item.id);
                 }
             });
-            $('#Group').autocomplete({
-                source: '/takegroup',
-                select: function (event, ui) {
-                    console.log('You selected: ' + ui.item.value + ', ' + ui.item.id);
-                    $('#group_id').val(ui.item.id);
-                }
+            $('#Group').
+            change(function() {
+                var selectedOptions = $('#Group').find(':selected')[0];
+                $('#group_id').val(selectedOptions.value);
             });
-            $('#Department').autocomplete({
-                source: '/takedepartment',
-                select: function (event, ui) {
-                    console.log('You selected: ' + ui.item.value + ', ' + ui.item.id);
-                    $('#department_id').val(ui.item.id);
-                }
+            $('#Department').
+            change(function() {
+                var selectedOptions = $('#Department').find(':selected')[0];
+                $('#department_id').val(selectedOptions.value);
+                $('#group_id').val(null);
+                $("#Group").empty();
+                var groups = JSON.parse(selectedOptions.attributes.groups.value);
+                $("#Group").append( $('<option selected disabled hidden style=\'display: none\' value=\'\'></option>'));
+                groups.forEach(function(item) {
+                    $("#Group").append( $("<option  value="+item.id+">"+item.group_code+"</option>"));
+                });
+
             });
         </script>
     </div>
