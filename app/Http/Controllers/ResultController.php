@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use Illuminate\Support\Facades\DB;
 use App\Models\Diploma;
 use Illuminate\Http\Request;
@@ -9,30 +10,38 @@ class ResultController extends Controller
 {
     public function ShowResults()
     {
-        $diplomas=Diploma::with(['student', 'group', 'department'])->paginate(15);
+        $diplomas=Diploma::with(['student', 'group', 'department'])->paginate(2);
         return view('SearchResults', compact('diplomas'));
     }
+
+
+    public function ShowCoolSearch()
+    {
+        $years=Diploma::select('creation_year')->orderBy('creation_year', 'desk')->distinct()->get();
+        $dparts=Department::all();
+        $array[]=array();
+        $array[0]=$years;
+        $array[1]=$dparts;
+        return view('Search', compact('array'));
+    }
+
+
     public function Search(Request $request)
     {
-        if($request->select=='Назва')
-        {
+
         $searchquery='%'.$request->search.'%';
-        $year=$request->year;
-        $diploma=Diploma::with(['student', 'group', 'department'])->where('description','like', $searchquery)->paginate(15);
-        }
-        else
+        var_dump($searchquery, $request->f_year, $request->s_year);
+        $diplomas=Diploma::with(['student', 'group', 'department'])->where('description','like', $searchquery);
+        if ($request->f_year!=''  or $request->s_year!='')
         {
-            /*$searchquery=$request->search.'%';*/
-
-           /* $diplomas
-                ->where('second_name','like', $searchquery)
-                ->orWhere('first_name','like', $searchquery)
-                ->orWhere(DB::raw('concat(second_name, " ", first_name)'),'like', $searchquery)
-                ->orWhere(DB::raw('concat(first_name, " ", second_name)'),'like', $searchquery)
-                ->paginate(15);*/
+            $diplomas = $diplomas->whereBetween('creation_year', [$request->f_year, $request->s_year]);
         }
 
-
+        if ($request->d_part)
+        {
+            $diplomas = $diplomas->where('department_id', '=', $request->d_part);
+        }
+        $diplomas=$diplomas->paginate(15);
         return view('SearchResults', compact('diplomas'));
     }
 }

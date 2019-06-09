@@ -8,15 +8,13 @@
 
                 <form method="post" action="/Search">
                     {{ csrf_field() }}
-                    <input type=text  required name="year">
+
                     <input type=text class="main" placeholder="Пошук Роботи" required name="search">
-                    <select class="selection" name="select">
-                        <option>Назва</option>
-                        <option>Ім'я</option>
-                    </select>
                     <input type="submit" class="button" value="Пошук">
+                    <br><a href="/CoolSearch">Розширений пошук</a>
                 </form>
                 <div class="align">
+
                     <form action="/student">
                         <input type="submit" class="button" value="Додати студента">
                     </form>
@@ -45,7 +43,7 @@
                                 <i class="far fa-edit"></i>
                             </a>
                         </td>
-                        <td> <a href="/Diploma/{{$diploma->id}}">{{$diploma->description}}</td></a>
+                        <td> <a href="/Diploma/{{$diploma->id}}">{{$diploma->description}}</a></td>
                         <td>
                             <a href="/student/{{$diploma->id}}">
                                 <i class="far fa-edit"></i>
@@ -72,4 +70,5 @@
             <?php echo $diplomas->render(); ?>
         </div>
     </div>
+
 @endsection

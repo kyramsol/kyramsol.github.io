@@ -19,4 +19,7 @@ class Diploma extends Model
     public function department() {
         return $this->belongsTo('App\Models\Department', 'department_id');
     }
+    public function scopeTime($query, $f_year, $s_year){
+        return $query->whereBetween('creation_year', [$f_year,$s_year]);
+    }
 }

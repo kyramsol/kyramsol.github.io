@@ -32,10 +32,18 @@
                             <td><input text class="textfield" required name="creation_year"></td>
                         </tr>
                         <tr>
+                            <td>Предмет</td>
+                            <td><input text class="textfield" name="subject" value="—"></td>
+                        </tr>
+                        <tr>
+                            <td>Вид</td>
+                            <td><input text class="textfield" name="type" value=""></td>
+                        </tr>
+                        <tr>
                             <td>Спеціальність</td>
                             <td>
 
-                                <select id="Department" class="textfield">
+                                <select id="Department" class="selection">
                                     <option selected disabled hidden style='display: none' value=''></option>
                                     @foreach ($departments as $department)
                                         <option value={{$department->id}} groups={{$department->groups}}>
@@ -49,20 +57,13 @@
 
                             <td>Група</td>
                             <td>
-                                <select id="Group" class="textfield">
+                                <select id="Group" class="selection">
                                 </select>
                             </td>
                         </tr>
                         </td>
 
-                        <tr>
-                            <td>Предмет</td>
-                            <td><input text class="textfield" name="subject" value="—"></td>
-                        </tr>
-                        <tr>
-                            <td>Вид</td>
-                            <td><input text class="textfield" name="type" value=""></td>
-                        </tr>
+
 
                         <tr>
                             <td colspan="2">

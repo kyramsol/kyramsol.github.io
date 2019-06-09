@@ -15,9 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/Search', function () {
-    return view('MainPage');
-});
+Route::get('/CoolSearch', 'ResultController@ShowCoolSearch');
+
 Route::get('/student', 'StudentController@addStudentForm');
 
 Route::post('/student/new', 'StudentController@addStudent');
@@ -53,7 +52,7 @@ Route::get('/takedepartment', 'DepartmentsController@takeDepartment');
 
 
 
-Route::post('/Search', 'ResultController@Search');
+Route::any('/Search', 'ResultController@Search');
 
 Route::get('/StudentList', 'ResultController@ShowStudentsResults');
 

@@ -21,7 +21,11 @@ class diplomaController extends Controller
 
     public function viewDiplomaToEdit($id)
     {
-        $diploma=Diploma::find($id);
+        $diplomas=Diploma::find($id);
+        $departments=Department::with(['groups'])->get();
+        $diploma[]=array();
+        $diploma[0]=$diplomas;
+        $diploma[1]=$departments;
         return view('AddDiplomaToEdit', compact('diploma'));
     }
 
