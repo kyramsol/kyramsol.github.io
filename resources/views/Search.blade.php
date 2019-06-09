@@ -5,9 +5,9 @@
         <div>
             <div class="head">Розширений пошук</div>
             <div class="border">
-                <form method="post" action="/Search" class="Addform">
+                <form method="get" action="/Search" class="Addform" >
                     {{ csrf_field() }}
-                    <input type="hidden" name="dpart_id" id="department_id">
+                    <input type="hidden" name="dpart_id" id="department_id" value="">
                     <table>
                         <tr>
                             <td colspan="4"><input type=text class="main" placeholder="Пошук Роботи"
